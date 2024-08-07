@@ -1,0 +1,292 @@
+{
+    "playingfield": {
+        "field_1_1": {
+            "coordinates": {
+                "x": 1,
+                "y": 1
+            },
+            "color": "grey",
+            "rotation": 90
+        },
+        "field_1_2": {
+            "coordinates": {
+                "x": 1,
+                "y": 2
+            },
+            "color": "green",
+            "rotation": 0
+        },
+        "field_1_3": {
+            "coordinates": {
+                "x": 1,
+                "y": 3
+            },
+            "color": "green",
+            "rotation": 180
+        },
+        "field_1_4": {
+            "coordinates": {
+                "x": 1,
+                "y": 4
+            },
+            "color": "black",
+            "rotation": 180
+        },
+        "field_1_5": {
+            "coordinates": {
+                "x": 1,
+                "y": 5
+            },
+            "color": "blue",
+            "rotation": 0
+        },
+        "field_1_6": {
+            "coordinates": {
+                "x": 1,
+                "y": 6
+            },
+            "color": "blue",
+            "rotation": 0
+        },
+        "field_2_1": {
+            "coordinates": {
+                "x": 2,
+                "y": 1
+            },
+            "color": "grey",
+            "rotation": 0
+        },
+        "field_2_2": {
+            "coordinates": {
+                "x": 2,
+                "y": 2
+            },
+            "color": "red",
+            "rotation": 90
+        },
+        "field_2_3": {
+            "coordinates": {
+                "x": 2,
+                "y": 3
+            },
+            "color": "green",
+            "rotation": 270
+        },
+        "field_2_4": {
+            "coordinates": {
+                "x": 2,
+                "y": 4
+            },
+            "color": "green",
+            "rotation": 0
+        },
+        "field_2_5": {
+            "coordinates": {
+                "x": 2,
+                "y": 5
+            },
+            "color": "green",
+            "rotation": 90
+        },
+        "field_2_6": {
+            "coordinates": {
+                "x": 2,
+                "y": 6
+            },
+            "color": "green",
+            "rotation": 0
+        },
+        "field_3_1": {
+            "coordinates": {
+                "x": 3,
+                "y": 1
+            },
+            "color": "green",
+            "rotation": 90
+        },
+        "field_3_2": {
+            "coordinates": {
+                "x": 3,
+                "y": 2
+            },
+            "color": "blue",
+            "rotation": 270
+        },
+        "field_3_3": {
+            "coordinates": {
+                "x": 3,
+                "y": 3
+            },
+            "color": "black",
+            "rotation": 180
+        },
+        "field_3_4": {
+            "coordinates": {
+                "x": 3,
+                "y": 4
+            },
+            "color": "red",
+            "rotation": 270
+        },
+        "field_3_5": {
+            "coordinates": {
+                "x": 3,
+                "y": 5
+            },
+            "color": "green",
+            "rotation": 0
+        },
+        "field_3_6": {
+            "coordinates": {
+                "x": 3,
+                "y": 6
+            },
+            "color": "black",
+            "rotation": 0
+        },
+        "field_4_1": {
+            "coordinates": {
+                "x": 4,
+                "y": 1
+            },
+            "color": "black",
+            "rotation": 0
+        },
+        "field_4_2": {
+            "coordinates": {
+                "x": 4,
+                "y": 2
+            },
+            "color": "grey",
+            "rotation": 90
+        },
+        "field_4_3": {
+            "coordinates": {
+                "x": 4,
+                "y": 3
+            },
+            "color": "red",
+            "rotation": 0
+        },
+        "field_4_4": {
+            "coordinates": {
+                "x": 4,
+                "y": 4
+            },
+            "color": "red",
+            "rotation": 0
+        },
+        "field_4_5": {
+            "coordinates": {
+                "x": 4,
+                "y": 5
+            },
+            "color": "black",
+            "rotation": 0
+        },
+        "field_4_6": {
+            "coordinates": {
+                "x": 4,
+                "y": 6
+            },
+            "color": "black",
+            "rotation": 0
+        },
+        "field_5_1": {
+            "coordinates": {
+                "x": 5,
+                "y": 1
+            },
+            "color": "red",
+            "rotation": 0
+        },
+        "field_5_2": {
+            "coordinates": {
+                "x": 5,
+                "y": 2
+            },
+            "color": "blue",
+            "rotation": 0
+        },
+        "field_5_3": {
+            "coordinates": {
+                "x": 5,
+                "y": 3
+            },
+            "color": "red",
+            "rotation": 180
+        },
+        "field_5_4": {
+            "coordinates": {
+                "x": 5,
+                "y": 4
+            },
+            "color": "blue",
+            "rotation": 0
+        },
+        "field_5_5": {
+            "coordinates": {
+                "x": 5,
+                "y": 5
+            },
+            "color": "red",
+            "rotation": 0
+        },
+        "field_5_6": {
+            "coordinates": {
+                "x": 5,
+                "y": 6
+            },
+            "color": "green",
+            "rotation": 90
+        },
+        "field_6_1": {
+            "coordinates": {
+                "x": 6,
+                "y": 1
+            },
+            "color": "blue",
+            "rotation": 0
+        },
+        "field_6_2": {
+            "coordinates": {
+                "x": 6,
+                "y": 2
+            },
+            "color": "grey",
+            "rotation": 270
+        },
+        "field_6_3": {
+            "coordinates": {
+                "x": 6,
+                "y": 3
+            },
+            "color": "blue",
+            "rotation": 180
+        },
+        "field_6_4": {
+            "coordinates": {
+                "x": 6,
+                "y": 4
+            },
+            "color": "blue",
+            "rotation": 180
+        },
+        "field_6_5": {
+            "coordinates": {
+                "x": 6,
+                "y": 5
+            },
+            "color": "blue",
+            "rotation": 90
+        },
+        "field_6_6": {
+            "coordinates": {
+                "x": 6,
+                "y": 6
+            },
+            "color": "red",
+            "rotation": 0
+        }
+    }
+}
