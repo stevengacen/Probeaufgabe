@@ -60,16 +60,16 @@
                 if (canvas) {
                     canvas.width = window.innerWidth;
                     canvas.height = window.innerHeight;
+
                     if (window.innerWidth <= 768) {
                         this.scale = 0.4;
-                        this.centerGrid(canvas, this.scale);
                     } else if (window.innerWidth <= 1024) {
                         this.scale = 0.6;
-                        this.centerGrid(canvas, this.scale);
                     } else {
                         this.scale = 0.9;
-                        this.centerGrid(canvas, this.scale);
                     }
+
+                    this.centerGrid(canvas, this.scale);
                     this.redrawCanvas();
                 }
             },
@@ -120,25 +120,12 @@
                 this.$nextTick(() => {
                     const canvas = this.$refs.canvas;
                     if (canvas) {
-                        if (window.innerWidth <= 768) {
-                            this.scale = 0.4;
-                        } else if (window.innerWidth <= 1024) {
-                            this.scale = 0.6;
-                        } else {
-                            this.scale = 0.9;
-                        }
                         canvas.width = window.innerWidth;
                         canvas.height = window.innerHeight;
                         this.centerGrid(canvas, this.scale);
                         this.redrawCanvas();
 
-                        window.addEventListener('resize', () => {
-                            if (canvas) {
-                                canvas.width = window.innerWidth;
-                                canvas.height = window.innerHeight;
-                                this.redrawCanvas();
-                            }
-                        });
+                        window.addEventListener('resize', this.onWindowResize);
                     }
                 });     
             },
@@ -194,6 +181,7 @@
             drawSquare(context, square) {
                 const { x, y, size, rotation, color } = square;
                 context.save();
+
                 context.translate(x + size / 2, y + size / 2);
                 context.rotate((rotation * (-Math.PI)) / 180);
                 context.translate(-size / 2, -size / 2);
@@ -272,7 +260,9 @@
                 if (event.button === 0) {
                     const canvas = this.$refs.canvas;
                     const rect = canvas.getBoundingClientRect();
-                    const x = ((event.clientX - rect.left - this.offsetX + 40 ) / this.scale)*1.04;
+                    
+                    const x = ((event.clientX - rect.left - this.offsetX + 30 ) / this.scale*1.05);
+                    console.log("X: ",x, "scale: ", this.scale, rect.left, rect.top, rect.right, rect.bottom)
                     const y = (event.clientY - rect.top - this.offsetY) / this.scale;
 
                     this.selectedSquare = null;
@@ -285,7 +275,7 @@
                             y <= square.y + square.size
                         ) {
                             this.selectedSquare = square;
-                            //this.centerViewOnSquare(square);
+                            //this.centerViewOnSquare(square); // Optionally center on the selected square
                             console.log(`Square clicked: x=${square.x}, y=${square.y}, color=${square.color}, rotation=${square.rotation}`);
                         }
                         
@@ -295,8 +285,9 @@
             },
 
             handleMouseMove(event) {
+                const canvas = this.$refs.canvas;
+
                 if (this.isMiddleMousePressed) {
-                    const canvas = this.$refs.canvas;
                     canvas.style.cursor = 'grab';
                 }
                 
@@ -309,9 +300,8 @@
                     this.startY = event.clientY;
                     this.redrawCanvas();
                 } else {
-                    const canvas = this.$refs.canvas;
                     const rect = canvas.getBoundingClientRect();
-                    const x = ((event.clientX - rect.left - this.offsetX + 40 ) / this.scale)*1.04;
+                    const x = ((event.clientX - rect.left - this.offsetX + 30 ) / this.scale*1.05);
                     const y = (event.clientY - rect.top - this.offsetY) / this.scale;
 
                     const isHovering = this.grid.some(square => {
