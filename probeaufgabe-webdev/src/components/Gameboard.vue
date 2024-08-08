@@ -62,16 +62,16 @@
                     canvas.height = window.innerHeight;
                     if (window.innerWidth <= 768) {
                         this.scale = 0.4;
+                        this.centerGrid(canvas, this.scale);
                     } else if (window.innerWidth <= 1024) {
                         this.scale = 0.6;
+                        this.centerGrid(canvas, this.scale);
                     } else {
                         this.scale = 0.9;
+                        this.centerGrid(canvas, this.scale);
                     }
-                    this.centerGrid(canvas);
                     this.redrawCanvas();
                 }
-                
-                
             },
 
             loadTextures() {
@@ -92,13 +92,13 @@
                 });
             },
 
-            centerGrid(canvas) {
+            centerGrid(canvas, scale) {
                 // Center the grid
                 const gridSize = 6;
                 const squareSize = 127;
                 const totalGridSize = gridSize * squareSize + (gridSize - 1) * this.squareMargin;
-                this.offsetX = (canvas.width - totalGridSize * this.scale) / 2;
-                this.offsetY = (canvas.height - totalGridSize * this.scale) / 2;
+                this.offsetX = (canvas.width - totalGridSize * scale) / 2;
+                this.offsetY = (canvas.height - totalGridSize * scale) / 2;
             },
 
             centerViewOnSquare(square) {
@@ -129,11 +129,9 @@
                         }
                         canvas.width = window.innerWidth;
                         canvas.height = window.innerHeight;
-
-                        this.centerGrid(canvas);
-  
+                        this.centerGrid(canvas, this.scale);
                         this.redrawCanvas();
-  
+
                         window.addEventListener('resize', () => {
                             if (canvas) {
                                 canvas.width = window.innerWidth;
@@ -171,14 +169,22 @@
                 const canvas = this.$refs.canvas;
                 if (canvas) {
                     const context = canvas.getContext('2d');
-                    context.clearRect(-10, -10, canvas.width, canvas.height);
-        
+
+                    // Clear the entire canvas before redrawing
+                    context.save();
+                    context.setTransform(1, 0, 0, 1, 0, 0); // Reset transform to default
+                    context.clearRect(0, 0, canvas.width, canvas.height); // Clear full canvas
+                    context.restore();
+
+                    // Apply transformations for scaling and panning
                     context.setTransform(this.scale, 0, 0, this.scale, this.offsetX, this.offsetY);
-        
+
+                    // Draw each square in the grid
                     this.grid.forEach(square => {
                         this.drawSquare(context, square);
                     });
-                
+
+                    // Highlight the selected square if any
                     if (this.selectedSquare) {
                         this.highlightSquare(context, this.selectedSquare);
                     }
