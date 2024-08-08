@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div class="container">
-      <Sidebar />
+      <Sidebar v-if="windowWidth >= 500"/>
+        <MobileNav v-if="windowWidth < 500"/>
       <div class="content">
         <router-view/>
       </div>
@@ -12,6 +13,7 @@
 
 <script>
   import Sidebar from './components/Sidebar.vue';
+  import MobileNav from './components/MobileNav.vue';
   import Footer from './components/Footer.vue';
 
 
@@ -19,8 +21,30 @@
     name: 'App',
     components: {
       Sidebar,
+      MobileNav,
       Footer
     },
+
+    data() {
+      return {
+        windowWidth: window.innerWidth
+      }
+    },
+
+    mounted() {
+      window.addEventListener('resize', this.onWindowResize);
+      this.onWindowResize(); // Initial call to set the correct width
+    },
+  
+    methods: {
+      onWindowResize() {
+        this.windowWidth = window.innerWidth;
+      }
+    },
+  
+    beforeDestroy() {
+      window.removeEventListener('resize', this.onWindowResize);
+    }
   };
 </script>
 
@@ -40,6 +64,7 @@
     align-items: center;
     overflow: hidden;
   }
+
 
   body, html, #app {
     margin: 0;
