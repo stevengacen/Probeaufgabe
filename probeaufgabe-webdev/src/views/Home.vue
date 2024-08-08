@@ -1,24 +1,24 @@
 <template>
-  <div class='home'>
+<div class='home'>
     <Gameboard />
-  </div>
+</div>
 </template>
-  
-<script>
-  import Gameboard from '@/components/Gameboard.vue';
 
-  export default {
+<script>
+import Gameboard from '@/components/Gameboard.vue';
+
+export default {
     name: 'Home',
     components: {
-      Gameboard
+        Gameboard
     }
-  };
+};
 </script>
 
 <style>
-  .home {
+.home {
     position: relative;
     width: 100%;
     height: 100%;
-  }
+}
 </style>

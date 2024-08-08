@@ -1,20 +1,22 @@
 <template>
-    <div class="footer">
-        <img src="@/assets/logo-flexlog.svg" alt="Flexlog Logo" class= "logo">
-        <span class="footerspan"> test exercise</span>
-        <span class="footerspan"> 06.08.24</span>
-        <span class="footerspan"> Steven Gacenbiler</span>
-    </div>
-  </template>
+<div class="footer">
+    <img src="@/assets/logo-flexlog.svg" alt="Flexlog Logo" class="logo">
+    <span class="footerspan"> test exercise</span>
+    <span class="footerspan"> 06.08.24</span>
+    <span class="footerspan"> Steven Gacenbiler</span>
+</div>
+</template>
+
   
-  <script>
-  export default {
+<script>
+export default {
     name: 'Footer'
-  };
-  </script>
+};
+</script>
+
   
-  <style>
-  .footer {
+<style>
+.footer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -29,17 +31,16 @@
     text-align: left;
     padding: 2px 2px;
     vertical-align: middle;
-  }
+}
 
-  .footerspan {
+.footerspan {
     margin-left: 20px;
     color: #d8d8d8;
     font-weight: 600;
-  }
+}
 
-  .logo {
+.logo {
     height: 10px;
     margin-left: 20px;
-  }
+}
 </style>
-  

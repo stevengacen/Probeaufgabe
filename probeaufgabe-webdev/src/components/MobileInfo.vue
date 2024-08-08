@@ -1,41 +1,41 @@
 <template>
-    <div class="infoside" v-if="square">
-        <div class="infobox">
-            <p>Koordinate</p>
-            <div class="seperator"></div>
-            <div class="coordsinfo">
-                <p>X: {{ square.coordinates.x }}</p>
-                <p>Y: {{ square.coordinates.y }}</p>
-            </div> 
-        </div>
-        <div class="infobox">
-            <p>Farbe</p>
-            <div class="seperator"></div>
-            <div class="colorinfo"> 
-                <div id="colorpreshow"></div>
-                <p>{{ translateColor(square.color) }}</p>
-            </div>
-            <button class="sideButton" @click="changeColor">Farbe ändern</button>
-        </div>
-        <div class="infobox">
-            <p>Rotation</p> 
-            <div class="seperator"></div>
-            <div class="inforow"> 
-                <p>{{ square.rotation }}°</p>
-            </div>
-            <button class="sideButton" @click="rotateSquare">um 90° drehen</button>
+<div class="infoside" v-if="square">
+    <div class="infobox">
+        <p>Koordinate</p>
+        <div class="seperator"></div>
+        <div class="coordsinfo">
+            <p>X: {{ square.coordinates.x }}</p>
+            <p>Y: {{ square.coordinates.y }}</p>
         </div>
     </div>
+    <div class="infobox">
+        <p>Farbe</p>
+        <div class="seperator"></div>
+        <div class="colorinfo">
+            <div id="colorpreshow"></div>
+            <p>{{ translateColor(square.color) }}</p>
+        </div>
+        <button class="sideButton" @click="changeColor">Farbe ändern</button>
+    </div>
+    <div class="infobox">
+        <p>Rotation</p>
+        <div class="seperator"></div>
+        <div class="inforow">
+            <p>{{ square.rotation }}°</p>
+        </div>
+        <button class="sideButton" @click="rotateSquare">um 90° drehen</button>
+    </div>
+</div>
 </template>
-  
+
 <script>
-  export default {
+export default {
     name: 'infoside',
     props: {
-      square: {
-        type: Object,
-        default: null
-      }
+        square: {
+            type: Object,
+            default: null
+        }
     },
     methods: {
         changeColor() {
@@ -73,104 +73,102 @@
     }
 }
 </script>
-  
 
 <style scoped>
-    .content {
-        width: 10px;
-    }
+.content {
+    width: 10px;
+}
 
-    .infoside {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 20%;
-        border-left: 1px solid #ddd;
-        z-index: 1000;
-        color: #55555A;
-        font-size: 16px;
-    }
+.infoside {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    border-left: 1px solid #ddd;
+    z-index: 1000;
+    color: #55555A;
+    font-size: 16px;
+}
 
-    .infobox {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #d5d5d7be;
-        margin-right: 1vh;
-        margin-left: 1vh;
-        margin-bottom: 0;
-        width: 30%;
-        height: 100%;
-        border-radius: 10px;
-    }
+.infobox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d5d5d7be;
+    margin-right: 1vh;
+    margin-left: 1vh;
+    margin-bottom: 0;
+    width: 30%;
+    height: 100%;
+    border-radius: 10px;
+}
 
-    .infobox p{
-        font-weight: 600;
-    }
+.infobox p {
+    font-weight: 600;
+}
 
-    .infobox div p{
-        font-weight: 400;
-    }
+.infobox div p {
+    font-weight: 400;
+}
 
-    .coordsinfo {
-        width: 80%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
+.coordsinfo {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
 
-    .colorinfo {
-        width: 60%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
+.colorinfo {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
-    #colorpreshow {
-        height: 25px;
-        width: 25px;
-        margin-right: 5px;
-        background-color: v-bind('shiftColor(square.color)');
-        border-radius: 4px;
-    }
+#colorpreshow {
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+    background-color: v-bind('shiftColor(square.color)');
+    border-radius: 4px;
+}
 
-    .sideButton {
-        width: 80%;
-        height: 22%;
-        font-family: "Roboto" "sans serif";
-        font-style: normal;
-        font-weight: 500;
-        background: transparent;
-        border-style: solid;
-        border-radius: 5px;
-        border-color: #55555a67;
-        border-width: 1px;
-        cursor: pointer;
-        transition: 0.3s all;
-    }
+.sideButton {
+    width: 80%;
+    height: 22%;
+    font-family: "Roboto""sans serif";
+    font-style: normal;
+    font-weight: 500;
+    background: transparent;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #55555a67;
+    border-width: 1px;
+    cursor: pointer;
+    transition: 0.3s all;
+}
 
-    .sideButton:hover {
-        background: #d4d4d479;
-        transition: 0.3s all;
-    }
+.sideButton:hover {
+    background: #d4d4d479;
+    transition: 0.3s all;
+}
 
-    .sideButton:active {
-        background: #d4d4d4d0;
-        transition: 0.1s all;
-    }
+.sideButton:active {
+    background: #d4d4d4d0;
+    transition: 0.1s all;
+}
 
-    .seperator {
-        height: 2px;
-        width: 80%;
-        margin-top: -5px;
-        background-color: #55555a67;
-    }
+.seperator {
+    height: 2px;
+    width: 80%;
+    margin-top: -5px;
+    background-color: #55555a67;
+}
 </style>
-  
