@@ -8,14 +8,14 @@
                 <Transition name="slide-fade-mbl-nav">
                     <li v-if="isOpen">
                         <router-link to="/" class="nav-item" active-class="active">
-                            <GameboardIcon class="icon" />
+                            <GameboardIcon @click="openMenu" class="icon"/>
                         </router-link>
                     </li>
                 </Transition>
                 <Transition name="slide-fade-mbl-nav2">
                     <li v-if="isOpen">
                         <router-link to="/user" class="nav-item" active-class="active">
-                            <UserIcon class="icon" />
+                            <UserIcon @click="openMenu" class="icon"/>
                         </router-link>
                     </li>
                 </Transition>

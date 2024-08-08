@@ -37,7 +37,6 @@
         default: null
       }
     },
-    
     methods: {
         changeColor() {
             const colors = ['red', 'green', 'blue', 'grey', 'black', 'pink'];
@@ -83,17 +82,15 @@
 
     .infoside {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 18%;
-        height: 100%;
-        background-color: #f9f9f9;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 20%;
         border-left: 1px solid #ddd;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
         z-index: 1000;
         color: #55555A;
         font-size: 16px;
@@ -103,11 +100,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #d5d5d756;
-        margin-top: 10%;
-        margin-bottom: 10%;
-        width: 65%;
-        height: 16%;
+        background-color: #d5d5d7be;
+        margin-right: 1vh;
+        margin-left: 1vh;
+        margin-bottom: 0;
+        width: 30%;
+        height: 100%;
         border-radius: 10px;
     }
 

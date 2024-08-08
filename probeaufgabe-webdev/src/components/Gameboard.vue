@@ -2,11 +2,17 @@
     <div class="canvas-container">
         <Transition name="slide-fade">
             <InfoSidebar 
-                v-if="selectedSquare"
+                v-if="selectedSquare && windowWidth >= 800"
+                ref="infoSidebar"
                 :square="selectedSquare"
                 @update-square="updateSquare"
             />
         </Transition>
+        <MobileInfo 
+                v-if="selectedSquare && windowWidth < 800"
+                :square="selectedSquare"
+                @update-square="updateSquare"
+            />
         <canvas 
             ref="canvas" 
             class="canvas" 
@@ -23,11 +29,13 @@
 <script>
     import gridData from '@/assets/playingfield_example.json'; // Import the JSON file
     import InfoSidebar from '@/components/InfoSidebar.vue';
+    import MobileInfo from '@/components/MobileInfo.vue';
   
     export default {
         name: 'Gameboard',
         components: {
             InfoSidebar,
+            MobileInfo
         },
     
         data() {
@@ -44,7 +52,10 @@
                 textures: {}, // Store textures based on color
                 squareMargin: 20,
                 selectedSquare: null, 
-                isMiddleMousePressed: false
+                isMiddleMousePressed: false,
+                windowWidth: window.innerWidth,
+                isOpen: false,
+                offsetChanged: 0
             };
         },
     
@@ -57,6 +68,7 @@
 
             onWindowResize() {
                 const canvas = this.$refs.canvas;
+                this.windowWidth = window.innerWidth;
                 if (canvas) {
                     canvas.width = window.innerWidth;
                     canvas.height = window.innerHeight;
@@ -122,6 +134,15 @@
                     if (canvas) {
                         canvas.width = window.innerWidth;
                         canvas.height = window.innerHeight;
+
+                        if (window.innerWidth <= 768) {
+                            this.scale = 0.4;
+                        } else if (window.innerWidth <= 1024) {
+                            this.scale = 0.6;
+                        } else {
+                            this.scale = 0.9;
+                        }
+
                         this.centerGrid(canvas, this.scale);
                         this.redrawCanvas();
 
@@ -275,11 +296,34 @@
                             y <= square.y + square.size
                         ) {
                             this.selectedSquare = square;
+                            
+                            
                             //this.centerViewOnSquare(square); // Optionally center on the selected square
                             console.log(`Square clicked: x=${square.x}, y=${square.y}, color=${square.color}, rotation=${square.rotation}`);
                         }
-                        
                     });
+
+                    if (this.selectedSquare != null) {
+                        this.isOpen = true;
+                    } else {
+                        this.isOpen = false;
+                    }
+
+                    if (this.windowWidth >= 800){
+                        if (this.isOpen) {
+                            if (this.offsetChanged == 0) {
+                                this.offsetX = this.offsetX*0.66 ;
+                                this.offsetChanged = 1 - this.offsetChanged;
+                                console.log(this.offsetChanged)
+                            }
+                        } else {
+                            if (this.offsetChanged == 1) {
+                                this.offsetX = this.offsetX/0.66
+                                this.offsetChanged = 1 - this.offsetChanged;
+                                console.log(this.offsetChanged)
+                            } 
+                        }
+                    }
                 this.redrawCanvas();
                 }
             },
