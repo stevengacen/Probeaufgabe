@@ -11,6 +11,7 @@
 
 <script>
 import gridData from '@/assets/playingfield_example.json'; // Import the JSON file
+
 import InfoSidebar from '@/components/InfoSidebar.vue';
 import MobileInfo from '@/components/MobileInfo.vue';
 
@@ -32,7 +33,7 @@ export default {
             minScale: 0.5,
             maxScale: 5,
             grid: [],
-            textures: {}, // Store textures based on color
+            textures: {},
             squareMargin: 20,
             selectedSquare: null,
             isMiddleMousePressed: false,
@@ -43,7 +44,7 @@ export default {
     },
 
     mounted() {
-        this.loadTextures(); // Load the texture first
+        this.loadTextures();
         window.addEventListener('resize', this.onWindowResize);
     },
 
@@ -284,7 +285,7 @@ export default {
                 const canvas = this.$refs.canvas;
                 const rect = canvas.getBoundingClientRect();
 
-                const x = ((event.clientX - rect.left - this.offsetX + 30) / this.scale * 1.05);
+                const x = ((event.clientX - rect.left - this.offsetX) / this.scale * 1.05);
                 console.log("X: ", x, "scale: ", this.scale, rect.left, rect.top, rect.right, rect.bottom)
                 const y = (event.clientY - rect.top - this.offsetY) / this.scale;
 
@@ -346,7 +347,7 @@ export default {
                 this.redrawCanvas();
             } else {
                 const rect = canvas.getBoundingClientRect();
-                const x = ((event.clientX - rect.left - this.offsetX + 30) / this.scale * 1.05);
+                const x = ((event.clientX - rect.left - this.offsetX) / this.scale * 1.05);
                 const y = (event.clientY - rect.top - this.offsetY) / this.scale;
 
                 const isHovering = this.grid.some(square => {
@@ -409,7 +410,7 @@ export default {
 @media (max-width: 768px) {
     .canvas-container {
         width: 100%;
-        height: calc(100vh - 150px);
+        height: 100%;
         /* Adjust based on navbar and footer heights */
     }
 
